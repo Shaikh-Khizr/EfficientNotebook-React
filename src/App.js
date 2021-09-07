@@ -8,6 +8,7 @@ import About from './components/About';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import NoteState from './context/notes/NoteState';
+import Alert from './components/Alert';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <NoteState>
         <Router>
           <Navbar />
+          <Alert message="This is the best react course in the planet" />
           <div className="container">
           <Switch>
             <Route exact path="/">

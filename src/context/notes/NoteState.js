@@ -5,7 +5,7 @@ const NoteState = (props) => {
 
     const initialNotes = [
         {
-          "_id": "613476453ffc6e03203f05f8",
+          "_id": "613476453fffc6e5603203f05f8",
           "user": "613367e8bf0095a75a3e7db9",
           "title": "My Title",
           "description": "Please wake up early",
@@ -14,7 +14,7 @@ const NoteState = (props) => {
           "__v": 0
         },
         {
-          "_id": "6134b7e4f0495c271e483649",
+          "_id": "6134b7e20d4f0495c271e483649",
           "user": "613367e8bf0095a75a3e7db9",
           "title": "New Note",
           "description": "Please access the REACT playlist",
@@ -23,7 +23,7 @@ const NoteState = (props) => {
           "__v": 0
         },
         {
-          "_id": "613476453ffc6e03203f05f8",
+          "_id": "61347264253ffc6e03203f05f8",
           "user": "613367e8bf0095a75a3e7db9",
           "title": "My Title",
           "description": "Please wake up early",
@@ -32,7 +32,7 @@ const NoteState = (props) => {
           "__v": 0
         },
         {
-          "_id": "6134b7e4f0495c271e483649",
+          "_id": "6134b7ee4f04595c271e483649",
           "user": "613367e8bf0095a75a3e7db9",
           "title": "New Note",
           "description": "Please access the REACT playlist",
@@ -41,7 +41,7 @@ const NoteState = (props) => {
           "__v": 0
         },
         {
-          "_id": "613476453ffc6e03203f05f8",
+          "_id": "6134764r53ffc66e03203f05f8",
           "user": "613367e8bf0095a75a3e7db9",
           "title": "My Title",
           "description": "Please wake up early",
@@ -50,7 +50,7 @@ const NoteState = (props) => {
           "__v": 0
         },
         {
-          "_id": "6134b7e4f0495c271e483649",
+          "_id": "6134b7e2g4f0495c271e483649",
           "user": "613367e8bf0095a75a3e7db9",
           "title": "New Note",
           "description": "Please access the REACT playlist",
@@ -59,7 +59,7 @@ const NoteState = (props) => {
           "__v": 0
         },
         {
-          "_id": "613476453ffc6e03203f05f8",
+          "_id": "6134f76453ffc6e0453203f05f8",
           "user": "613367e8bf0095a75a3e7db9",
           "title": "My Title",
           "description": "Please wake up early",
@@ -68,7 +68,7 @@ const NoteState = (props) => {
           "__v": 0
         },
         {
-          "_id": "6134b7e4f0495c271e483649",
+          "_id": "6s134b765e4f0495c271e483649",
           "user": "613367e8bf0095a75a3e7db9",
           "title": "New Note",
           "description": "Please access the REACT playlist",
