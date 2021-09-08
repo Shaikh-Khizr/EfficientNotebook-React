@@ -35,8 +35,9 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({title, description, tag})
     });
+    const json = await response.json();
+    console.log(json);
 
-    console.log("Adding a new note");
     const note = {
       "_id": "6s134b765e4f2d0495c4271e483649",
       "user": "613367e8bf0095a75a3e7db93",
@@ -53,24 +54,28 @@ const NoteState = (props) => {
   const editNote = async (id, title, description, tag) => {
     // API Call
     const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
-      method: 'POST',
+      method: 'PUT',
           headers: {
         'Content-Type': 'application/json',
         'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjEzMzY3ZThiZjAwOTVhNzVhM2U3ZGI5In0sImlhdCI6MTYzMDgyMjQwNn0.6QGASCMRECZrTI6ErQ225Sg-0rirEAFnxZ9K26q700g'
       },
       body: JSON.stringify({title, description, tag})
     });
-    const json = response.json();
+    const json = await response.json();
+    console.log(json);
 
     // Logic to edit in client side
-    for (let index = 0; index < notes.length; index++) {
-      const element = notes[index];
+    let newNotes = JSON.parse(JSON.stringify(notes));
+    for (let index = 0; index < newNotes.length; index++) {
+      const element = newNotes[index];
       if (element._id === id) {
-        element.title = title;
-        element.description = description;
-        element.tag = tag;
+        newNotes[index].title = title;
+        newNotes[index].description = description;
+        newNotes[index].tag = tag;
+        break;
       }
     }
+    setNotes(newNotes);
   }
 
   // Delete a Note
@@ -83,10 +88,9 @@ const NoteState = (props) => {
         'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjEzMzY3ZThiZjAwOTVhNzVhM2U3ZGI5In0sImlhdCI6MTYzMDgyMjQwNn0.6QGASCMRECZrTI6ErQ225Sg-0rirEAFnxZ9K26q700g'
       }
     });
-    const json = response.json();
+    const json = await response.json();
     console.log(json);
 
-    console.log("Deleting the note with id " + id);
     const newNotes = notes.filter((note) => { return note._id !== id });
     setNotes(newNotes);
   }
