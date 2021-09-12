@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router-dom';
 
-const Signup = () => {
+const Signup = (props) => {
     
     const [credentials, setCredentials] = useState({name: "", email: "", password: "", cpassword: ""});
     let history = useHistory();
@@ -22,8 +22,9 @@ const Signup = () => {
               // Save the auth token and redirect
               localStorage.setItem('efficientnotebook_token', json.authToken);
               history.push("/");
+              props.showAlert("Account Created Successfully", "success");
           } else {
-              alert("Invalid credentials");
+            props.showAlert("Invalid details", "danger");
           }
     }
 
@@ -33,14 +34,14 @@ const Signup = () => {
 
     return (
         <div>
-            <form className="container" onSubmit={handleSignupSubmit}>
+            <form className="container my-3" onSubmit={handleSignupSubmit}>
             <div className="mb-3">
                     <label htmlFor="name" className="form-label">Name</label>
-                    <input type="text" className="form-control" onChange={onChange} name="name" id="name" required />
+                    <input type="text" className="form-control" onChange={onChange} name="name" id="name" />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" onChange={onChange} name="email" id="email" aria-describedby="emailHelp" required />
+                    <input type="email" className="form-control" onChange={onChange} name="email" id="email" aria-describedby="emailHelp" />
                     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div className="mb-3">
