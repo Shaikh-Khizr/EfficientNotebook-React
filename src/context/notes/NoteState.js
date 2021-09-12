@@ -15,7 +15,7 @@ const NoteState = (props) => {
       method: 'GET',
           headers: {
         'Content-Type': 'application/json',
-        'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjEzMzY3ZThiZjAwOTVhNzVhM2U3ZGI5In0sImlhdCI6MTYzMDgyMjQwNn0.6QGASCMRECZrTI6ErQ225Sg-0rirEAFnxZ9K26q700g'
+        'auth-token': localStorage.getItem("efficientnotebook_token")
       }
     });
     const json = await response.json();
@@ -30,7 +30,7 @@ const NoteState = (props) => {
       method: 'POST',
           headers: {
         'Content-Type': 'application/json',
-        'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjEzMzY3ZThiZjAwOTVhNzVhM2U3ZGI5In0sImlhdCI6MTYzMDgyMjQwNn0.6QGASCMRECZrTI6ErQ225Sg-0rirEAFnxZ9K26q700g'
+        'auth-token': localStorage.getItem("efficientnotebook_token")
       },
       body: JSON.stringify({title, description, tag})
     });
@@ -45,11 +45,12 @@ const NoteState = (props) => {
       method: 'PUT',
           headers: {
         'Content-Type': 'application/json',
-        'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjEzMzY3ZThiZjAwOTVhNzVhM2U3ZGI5In0sImlhdCI6MTYzMDgyMjQwNn0.6QGASCMRECZrTI6ErQ225Sg-0rirEAFnxZ9K26q700g'
+        'auth-token': localStorage.getItem("efficientnotebook_token")
       },
       body: JSON.stringify({title, description, tag})
     });
     const json = await response.json();
+    console.log(json);
 
     // Logic to edit in client side
     let newNotes = JSON.parse(JSON.stringify(notes));
@@ -72,10 +73,11 @@ const NoteState = (props) => {
       method: 'DELETE',
           headers: {
         'Content-Type': 'application/json',
-        'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjEzMzY3ZThiZjAwOTVhNzVhM2U3ZGI5In0sImlhdCI6MTYzMDgyMjQwNn0.6QGASCMRECZrTI6ErQ225Sg-0rirEAFnxZ9K26q700g'
+        'auth-token': localStorage.getItem("efficientnotebook_token")
       }
     });
     const json = await response.json();
+    console.log(json);
     const newNotes = notes.filter((note) => { return note._id !== id });
     setNotes(newNotes);
   }

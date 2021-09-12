@@ -1,30 +1,30 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 const Login = (props) => {
 
-    const [credentials, setCredentials] = useState({email: "", password: ""});
+    const [credentials, setCredentials] = useState({ email: "", password: "" });
     let history = useHistory();
 
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch("http://localhost:5000/api/auth/login", {
             method: 'POST',
-                headers: {
-              'Content-Type': 'application/json'
+            headers: {
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify({email: credentials.email, password: credentials.password})
-          });
-          const json = await response.json();
-          console.log(json);
-          if(json.success){
-              // Save the auth token and redirect
-              localStorage.setItem('efficientnotebook_token', json.authToken);
-              history.push("/");
-              props.showAlert("Logged in Successfully", "success");
-          } else {
-              props.showAlert("Invalid credentials", "danger");
-          }
+            body: JSON.stringify({ email: credentials.email, password: credentials.password })
+        });
+        const json = await response.json();
+        console.log(json);
+        if (json.success) {
+            // Save the auth token and redirect
+            localStorage.setItem('efficientnotebook_token', json.authToken);
+            props.showAlert("Logged in Successfully", "success");
+            history.push("/");
+        } else {
+            props.showAlert("Invalid credentials", "danger");
+        }
     }
 
     const onChange = (e) => {
@@ -32,7 +32,8 @@ const Login = (props) => {
     }
 
     return (
-        <div>
+        <div className="my-3">
+            <h2>Login to continue with EfficientNoteBook</h2>
             <form onSubmit={handleLoginSubmit}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
